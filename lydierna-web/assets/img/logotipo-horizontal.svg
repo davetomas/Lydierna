@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
+  <g transform="translate(30,30) scale(0.6)">
+    <circle cx="200" cy="200" r="168" fill="none" stroke="#1E1C19" stroke-width="3" stroke-dasharray="740 320" stroke-linecap="round" opacity="0.3"/>
+    <circle cx="200" cy="200" r="130" fill="none" stroke="#7A4420" stroke-width="15" stroke-dasharray="560 260" stroke-linecap="round"/>
+    <circle cx="200" cy="200" r="92" fill="none" stroke="#C2793D" stroke-width="24" stroke-dasharray="430 148" stroke-linecap="round" transform="rotate(-40 200 200)"/>
+    <circle cx="200" cy="200" r="14" fill="#1E1C19"/>
+    <circle cx="200" cy="200" r="6" fill="#F2C077"/>
+  </g>
+  <text x="290" y="160" font-family="Clash Display" font-weight="700" font-size="72" fill="#1E1C19" letter-spacing="0">LYDIERNA</text>
+  <text x="292" y="196" font-family="Clash Display" font-weight="500" font-size="20" fill="#625D53" letter-spacing="4">RECORRIDOS VIRTUALES</text>
+</svg>

@@ -1,0 +1,49 @@
+# ============================================================
+# LYDIERNA — configuración de Apache / Hostinger
+# Cache de assets estáticos + compresión + charset.
+# No borrar este archivo: sin él, Hostinger puede servir
+# versiones viejas de CSS/JS después de cada actualización.
+# ============================================================
+
+AddDefaultCharset UTF-8
+
+# ---------- Compresión ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------- Cache ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML: casi sin cache, para que los cambios se vean al instante
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # CSS / JS: cache larga (usamos ?v=YYYYMMDD como cache-buster)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # Fuentes
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+
+  # Imágenes
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|woff2?|png|jpe?g|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ---------- Seguridad básica ----------
+Options -Indexes
